@@ -26,7 +26,7 @@ class AwsDynamoDb extends Component {
     this.context.status('Deploying')
     const config = mergeDeepRight(defaults, inputs)
 
-    config.name = this.state.name || this.context.resourceId()
+    config.name = this.state.name || inputs.name || this.context.resourceId()
 
     this.context.debug(
       `Starting deployment of table ${config.name} in the ${config.region} region.`
